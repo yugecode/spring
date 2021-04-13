@@ -19,6 +19,8 @@
     <properties>
         <java.version>1.8</java.version>
         <spring.cloud-version>Hoxton.SR10</spring.cloud-version>
+        <fastjson.version>1.2.55</fastjson.version>
+        <commons-beanutils.version>1.9.3</commons-beanutils.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -43,7 +45,25 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${commons-beanutils.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
     </dependencies>
+
 
     <!--仓库-->
     <repositories>

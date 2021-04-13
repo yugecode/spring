@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: spring-cloud-datasource
+  main:
+    allow-bean-definition-overriding: true
+  aop:
+    proxy-target-class: false
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.4.3:30013/datasource?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+      username: root
+      password: password
+      initial-size: 20
+      max-active: 50
+      min-idle: 20
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      remove-abandoned-timeout: 1800
+      remove-abandoned: true
+      validation-query: "select 1"
+      test-while-idle: true
+      test-on-borrow: true
+      test-on-return: true
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      default-auto-commit: false
+      query-timeout: 15
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 8080
+

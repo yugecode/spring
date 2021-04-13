@@ -1,1 +1,22 @@
+spring:
+  application:
+    name: spring-cloud-service-eureka
+#内嵌定时tomcat的端口
+server:
+  port: 8761
 
+#eureka注册中心相关配置
+eureka:
+  instance:
+    hostname: ${spring.application.name}
+  #由于我们目前创建的应用是一个服务注册中心，而不是普通的应用，
+  #默认情况下，这个应用会向注册中心（也是它自己）注册它自己，
+  #设置为false表示禁止这种自己向自己注册的默认行为
+  client:
+    register-with-eureka: false
+    #表示不去从服务端检索其他服务信息，因为自己就是服务端，
+    #服务注册中心本身的职责就是维护服务实例，它不需要去检索其他服务
+    fetch-registry: false
+    #指定服务注册中心的位置
+    service-url:
+      defaultZone: http://${spring.application.name}:8761/eureka
