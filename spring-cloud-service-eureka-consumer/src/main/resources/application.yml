@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: spring-cloud-service-eureka-consumer
+
+#每间隔2s，向服务端发送一次心跳，证明自己依然"存活"
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 2
+    #告诉服务端，如果我10s之内没有给你发心跳，就代表我故障了，将我踢出掉
+    lease-expiration-duration-in-seconds: 10
+    #告诉服务端，服务实例以IP作为链接，而不是取机器名
+    prefer-ip-address: true
+    #告诉服务端，服务实例的名字
+    instance-id: ${spring.application.name}
+  #eureka注册中心的连接地址
+  client:
+    service-url:
+      defaultZone: http://spring-cloud-service-eureka:8761/eureka
