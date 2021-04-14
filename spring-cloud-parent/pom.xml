@@ -6,9 +6,16 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.3.RELEASE</version>
+        <version>2.3.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <packaging>pom</packaging>
+    <!--聚合子模块-->
+    <modules>
+        <module>../spring-cloud-service-eureka</module>
+        <module>../spring-cloud-datasource</module>
+    </modules>
 
     <groupId>cn.code</groupId>
     <artifactId>spring-cloud-parent</artifactId>
@@ -16,12 +23,16 @@
     <name>spring-cloud-parent</name>
     <description>Demo project for Spring Cloud</description>
 
+    <!--配置信息-->
     <properties>
         <java.version>1.8</java.version>
         <spring.cloud-version>Hoxton.SR10</spring.cloud-version>
         <fastjson.version>1.2.55</fastjson.version>
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
+        <spring.boot.version>2.3.5.RELEASE</spring.boot.version>
+        <surefire.skip>false</surefire.skip>
     </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -86,5 +97,56 @@
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
     </repositories>
+
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>repackage</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <version>3.8.1</version>-->
+<!--                <configuration>-->
+<!--                    <source>${java.version}</source>-->
+<!--                    <target>${java.version}</target>-->
+<!--                    <encoding>${project.build.sourceEncoding}</encoding>-->
+<!--                    <fork>true</fork>-->
+<!--                    <meminitial>1024m</meminitial>-->
+<!--                    <maxmem>2024m</maxmem>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <version>2.18.1</version>-->
+<!--                <configuration>-->
+<!--                    <skip>${surefire.skip}</skip>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-failsafe-plugin</artifactId>-->
+<!--                <version>2.18.1</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>integration-test</goal>-->
+<!--                            <goal>verify</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 </project>

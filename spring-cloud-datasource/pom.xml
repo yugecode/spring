@@ -7,7 +7,7 @@
         <groupId>cn.code</groupId>
         <artifactId>spring-cloud-parent</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../spring-cloud-parent/pom.xml</relativePath>
     </parent>
 
     <groupId>cn.code</groupId>
